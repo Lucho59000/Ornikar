@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "3a2ca91f-dff8-4e67-b333-f6bdbb732c55",
+		"name": "OrnikarAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34450694"
+	},
+	"item": [
+		{
+			"name": "search by plate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Verify vehicle details\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.specifications).to.have.property('energy', 'ESSENCE');",
+							"    pm.expect(jsonData.specifications).to.have.property('model', 'SERIE 3');",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/v2/vehicles/license-plate/{{plate}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"vehicles",
+						"license-plate",
+						"{{plate}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search fake plate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const fakeplate = pm.variables.get(\"fakeplate\");",
+							"",
+							"pm.sendRequest(`${pm.variables.get(\"baseURL\")}/api/v2/vehicles/license-plate/${fakeplate}`, (error, response) => {",
+							"    pm.test(\"Status code is 400 with fakeplate\", function () {",
+							"        pm.expect(response.code).to.equal(400);",
+							"    });",
+							"",
+							"    pm.test(\"Verify error message with fakeplate\", function () {",
+							"        var jsonData = response.json();",
+							"        pm.expect(jsonData.message[0]).to.equal(`The plate number '${fakeplate}' is incorrect.`);",
+							"        pm.expect(jsonData.statusCode).to.equal(400);",
+							"        pm.expect(jsonData.error).to.equal(\"BadRequest\");",
+							"    });",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/v2/vehicles/license-plate/{{fakeplate}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"vehicles",
+						"license-plate",
+						"{{fakeplate}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search brandlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Check if the response contains expected value\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.include(\"TOYOTA\");",
+							"    pm.expect(jsonData).to.include(\"ABARTH\");",
+							"    pm.expect(jsonData).to.not.include(\"AZERTY\");",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/vehicles/brands/",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"vehicles",
+						"brands",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "{{plate}}",
+			"value": ""
+		}
+	]
+}
