@@ -1,0 +1,132 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 0,
+    "pending": 0,
+    "failures": 2,
+    "start": "2024-04-22T14:20:34.180Z",
+    "end": "2024-04-22T14:20:56.019Z",
+    "duration": 21839,
+    "testsRegistered": 2,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d14dfa05-dd16-4852-97b6-cee9aa67b879",
+      "title": "",
+      "fullFile": "cypress/e2e/features/login.feature",
+      "file": "cypress/e2e/features/login.feature",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "aecbd4a0-e648-4c50-9a12-98150daa0070",
+          "title": "Landing Page Feature",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "User end-to-end journey until receiving a \"Devis\"",
+              "fullTitle": "Landing Page Feature User end-to-end journey until receiving a \"Devis\"",
+              "timedOut": null,
+              "duration": 14825,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const state = window.testState;\nreturn cy\n  .then(() => state.onStartScenario(scenario, indexedSteps))\n  .then(() =>\n    resolveAndRunBeforeHooks.call(this, scenario.tags, state.feature.name)\n  )\n  .then(() =>\n    indexedSteps.forEach((step) =>\n      stepTest.call(this, state, step, rowData)\n    )\n  )\n  .then(() => state.onFinishScenario(scenario));",
+              "err": {
+                "message": "Error: Step implementation missing for: I submit the form",
+                "estack": "Error: Step implementation missing for: I submit the form\n    at Context.resolveAndRunStepDefinition (node_modules/cypress-cucumber-preprocessor/lib/resolveStepDefinition.js:199:0)\n    at Context.eval (node_modules/cypress-cucumber-preprocessor/lib/createTestFromScenario.js:27:0)",
+                "diff": null
+              },
+              "uuid": "8d978adb-ca7e-4ace-9f23-8db4426999b6",
+              "parentUUID": "aecbd4a0-e648-4c50-9a12-98150daa0070",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "User starts filling the form, quits, then returns  => Test button “Je reprends mon devis”",
+              "fullTitle": "Landing Page Feature User starts filling the form, quits, then returns  => Test button “Je reprends mon devis”",
+              "timedOut": null,
+              "duration": 5934,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const state = window.testState;\nreturn cy\n  .then(() => state.onStartScenario(scenario, indexedSteps))\n  .then(() =>\n    resolveAndRunBeforeHooks.call(this, scenario.tags, state.feature.name)\n  )\n  .then(() =>\n    indexedSteps.forEach((step) =>\n      stepTest.call(this, state, step, rowData)\n    )\n  )\n  .then(() => state.onFinishScenario(scenario));",
+              "err": {
+                "message": "Error: Step implementation missing for: I navigate away from the page",
+                "estack": "Error: Step implementation missing for: I navigate away from the page\n    at Context.resolveAndRunStepDefinition (node_modules/cypress-cucumber-preprocessor/lib/resolveStepDefinition.js:199:0)\n    at Context.eval (node_modules/cypress-cucumber-preprocessor/lib/createTestFromScenario.js:27:0)",
+                "diff": null
+              },
+              "uuid": "870e3a9c-01f3-4e97-aaad-2f83e36f0b76",
+              "parentUUID": "aecbd4a0-e648-4c50-9a12-98150daa0070",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "8d978adb-ca7e-4ace-9f23-8db4426999b6",
+            "870e3a9c-01f3-4e97-aaad-2f83e36f0b76"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 20759,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
