@@ -1,0 +1,133 @@
+{
+	"id": "1777f9d0-a977-4bf0-a0a1-f8a307f1f785",
+	"name": "OrnikarAPI",
+	"timestamp": "2024-04-25T07:22:53.169Z",
+	"collection_id": "34450694-3a2ca91f-dff8-4e67-b333-f6bdbb732c55",
+	"folder_id": 0,
+	"environment_id": "34450694-e66e189a-1526-4543-a03a-e002cd729490",
+	"totalPass": 6,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-04-25T07:22:52.372Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "998c5779-705d-4bf4-b2b5-840c98044868",
+			"name": "search by plate",
+			"url": "https://insurance-api.ornikar.com/api/v2/vehicles/license-plate/EZ135EA",
+			"time": 303,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Verify vehicle details": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify vehicle details": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				303
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Verify vehicle details": true
+				}
+			]
+		},
+		{
+			"id": "5f2c6fd6-9723-41e8-82ea-abf8a962f24b",
+			"name": "search fake plate",
+			"url": "https://insurance-api.ornikar.com/api/v2/vehicles/license-plate/AZERTY",
+			"time": 180,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400 with fakeplate": true,
+				"Verify error message with fakeplate": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400 with fakeplate": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify error message with fakeplate": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				180
+			],
+			"allTests": [
+				{
+					"Status code is 400 with fakeplate": true,
+					"Verify error message with fakeplate": true
+				}
+			]
+		},
+		{
+			"id": "068fbc52-819c-40a5-8a4b-92b9f41cb2de",
+			"name": "search brandlist",
+			"url": "https://insurance-api.ornikar.com/vehicles/brands/",
+			"time": 84,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Check if the response contains expected value": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check if the response contains expected value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				84
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Check if the response contains expected value": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 567,
+	"collection": {
+		"requests": [
+			{
+				"id": "998c5779-705d-4bf4-b2b5-840c98044868",
+				"method": "GET"
+			},
+			{
+				"id": "5f2c6fd6-9723-41e8-82ea-abf8a962f24b",
+				"method": "GET"
+			},
+			{
+				"id": "068fbc52-819c-40a5-8a4b-92b9f41cb2de",
+				"method": "GET"
+			}
+		]
+	}
+}
